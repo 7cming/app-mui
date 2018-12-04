@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>button</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../css/mui.css"/>
+    <link rel="stylesheet" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/app.css"/>
+</head>
+
+<body>
+    <div class="mui-content">
+    	<p>普通按钮</p>
+    	<button type="button" class="mui-btn">默认</button>
+    	<button type="button" class="mui-btn mui-btn-primary">蓝色</button>
+    	<button type="button" class="mui-btn mui-btn-success">绿色</button>
+    	<button type="button" class="mui-btn mui-btn-warning">黄色</button>
+    	<button type="button" class="mui-btn mui-btn-danger">红色</button>
+    	<button type="button" class="mui-btn mui-btn-royal">紫色</button>
+    	
+    	<p>无底色、有边框按钮   .mui-btn-outlined</p>
+    	<button type="button" class="mui-btn mui-btn-outlined">默认</button>
+    	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">蓝色</button>
+    	<button type="button" class="mui-btn mui-btn-success mui-btn-outlined">绿色</button>
+    	<button type="button" class="mui-btn mui-btn-warning mui-btn-outlined">黄色</button>
+    	<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">红色</button>
+    	<button type="button" class="mui-btn mui-btn-royal mui-btn-outlined">紫色</button>
+    	
+    	<p>block btn  .btn-block</p>
+    	<button type="button" class="mui-btn btn-block">默认</button>
+    	
+    	<p>按钮组</p>
+    	<div class="btn-group">
+    		<button type="button" class="btn btn-default">按钮 1</button>
+    		<button type="button" class="btn btn-default">按钮 2</button>
+    		<button type="button" class="btn btn-default">按钮 3</button>
+    	</div>
+    	
+    	<p>防止重复点击</p>
+    	<button type="button" class="mui-btn mui-btn-primary" id="btndisable" data-loading-icon="mui-spinner mui-spinner-custom" data-loading-text="请稍后">确认</button>
+    </div>
+</body>
+
+</html>
+<script src="../js/mui.js"></script>
+<script type="text/javascript">
+    mui.init({
+        statusBarBackground: '#f7f7f7'
+    });
+    mui(document.body).on('tap', '#btndisable', function(e) {
+    	mui(this).button('loading');
+    	setTimeout(function() {
+    		mui(this).button('reset');
+    	}.bind(this), 2000);
+    });
+</script>

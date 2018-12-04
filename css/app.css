@@ -1,0 +1,16 @@
+body {
+	padding: 8px;
+}
+
+.btn-block {
+	width: 100%;
+}
+
+.btn-group {
+	display: flex;
+}
+
+.btn-group .btn {
+	flex: 1;
+	margin: 0px 2px;
+}

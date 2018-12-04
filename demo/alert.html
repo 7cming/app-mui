@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dialog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../css/mui.css"/>
+    <link rel="stylesheet" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/app.css"/>
+</head>
+
+<body>
+    <div class="mui-content">
+        <button type="button" id="btn1">alert</button>
+        <button type="button" id="btn2">confirm</button>
+        <button type="button" id="btn3">prompt</button>
+        <button type="button" id="btn4">toast</button>
+    </div>
+</body>
+</html>
+<script src="../js/mui.js"></script>
+<script type="text/javascript">
+    mui.init();
+    
+    mui(document.body).on('tap', '#btn1', function(e) {
+        mui.alert('message', 'title', function() {
+        mui.toast('close event');
+        });
+    });
+    mui(document.body).on('tap', '#btn2', function(e) {
+    	var btnArray = ['否', '是'];//按钮名称
+    	mui.confirm('message', 'title', btnArray, function(e) {
+    		if (e.index == 1) {
+                mui.toast('是');
+    		} else {
+    			mui.toast('否');
+    		}
+    	})
+    });
+    mui(document.body).on('tap', '#btn3', function(e) {
+    	e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
+    	var btnArray = ['取消', '确定'];//按钮名称
+    	mui.prompt('message', 'placeholder', 'title', btnArray, function(e) {
+    		if (e.index == 1) {
+    			mui.toast(e.value);
+    		} else {
+    			mui.toast('你点了取消按钮');
+    		}
+    	})
+    });
+    mui(document.body).on('tap', '#btn4', function(e) {
+    	mui.toast('toast');
+    });
+</script>
